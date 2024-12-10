@@ -10,8 +10,6 @@ public class Proyecto1 {
         //Declaramos variables
         int nuss = 0;
         byte sintoma = -1, exploracion = -1, nivelPrioridad = -1, temperatura = -1;
-        boolean cicloSintoma = true;
-        boolean cicloExploracion = true;
 
         //Pedimos NUSS al paciente, el bucle hace que no se cierre el programa si pone un numero incorrecto, con verificacion de minimo y maximo
         while (nuss < MIN_NUSS || nuss > MAX_NUSS) {
@@ -24,7 +22,7 @@ public class Proyecto1 {
 
         }
         //Solicitamos sintomas, tambien con bucle para evitar que el programa cierre en caso de error del paciente, usando como condicion "cicloSintoma" para no usar break, con verificacion de minimo y maximo
-        while (cicloSintoma) {
+        while (sintoma < 0 || sintoma > 3) {
             System.out.println("¿Sintoma?: ");
             System.out.println("Dolor (0)");
             System.out.println("Lesion Traumatica (1)");
@@ -34,8 +32,6 @@ public class Proyecto1 {
             sintoma = sc.nextByte();
             if (sintoma < 0 || sintoma > 3) {
                 System.out.println("ERROR: El valor tiene que ser entre 0 y 3");
-            }else {
-                cicloSintoma = false;
             }
         }
         //Con switch desplegamos otro menú para segun que sintoma haya tenido el paciente le saldran diferentes opciones de exploracion
@@ -48,8 +44,9 @@ public class Proyecto1 {
                     System.out.println("Dolor de cabeza (2)");
                     System.out.println("Migraña (3)");
                     exploracion = sc.nextByte();
-                }if (exploracion < 0 || exploracion > 3){
+                    if (exploracion < 0 || exploracion > 3){
                     System.out.println("ERROR: Introduce el valor valido del 0 al 3");
+                    }
                 }
                 break;
 
@@ -60,8 +57,9 @@ public class Proyecto1 {
                     System.out.println("Quemadura (2)");
                     System.out.println("Lesion cerebral traumatica (3)");
                     exploracion = sc.nextByte();
-                }if (exploracion < 0 || exploracion > 3){
+                    if (exploracion < 0 || exploracion > 3){
                     System.out.println("ERROR: Introduce el valor valido del 0 al 3");
+                    }
                 }
                 break;
 
@@ -72,8 +70,9 @@ public class Proyecto1 {
                     System.out.println("Infeccion viral (2)");
                     System.out.println("Reaccion alergica (3)");
                     exploracion = sc.nextByte();
-                }if (exploracion < 0 || exploracion > 3){
-                    System.out.println("ERROR: Introduce el valor valido del 0 al 3");
+                    if (exploracion < 0 || exploracion > 3) {
+                        System.out.println("ERROR: Introduce el valor valido del 0 al 3");
+                    }
                 }
                 break;
 
@@ -84,8 +83,9 @@ public class Proyecto1 {
                     System.out.println("Accidente cerebrovascular (2)");
                     System.out.println("Hipoglucemia severa (3)");
                     exploracion = sc.nextByte();
-                }if(exploracion < 0 || exploracion > 3){
-                    System.out.println("ERROR: Introduce el valor valido del 0 al 3");
+                    if (exploracion < 0 || exploracion > 3) {
+                        System.out.println("ERROR: Introduce el valor valido del 0 al 3");
+                    }
                 }
                 break;
         }
